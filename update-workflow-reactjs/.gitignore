@@ -1,0 +1,8 @@
+.idea
+dist
+node_modules
+npm-debug.log
+coverage
+storybook-static
+package-lock.json
+.editorconfig
