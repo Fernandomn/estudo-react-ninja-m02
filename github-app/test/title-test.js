@@ -10,4 +10,3 @@ const TitleComponent = ReactDOMServer.renderToStaticMarkup(
 )
 
 console.log($(TitleComponent).get(0).tagName)
-

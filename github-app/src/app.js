@@ -2,8 +2,10 @@
 
 import React, { Component } from 'react'
 import AppContent from './components/app-content'
-import ajax from '@fdaciuk/ajax'
+// import ajax from '@fdaciuk/ajax'
+import jquery from 'jquery'
 
+const $ = jquery
 const initialReposState = { repos: [], pagination: {} }
 
 class App extends Component {
@@ -33,7 +35,7 @@ class App extends Component {
     if (key === ENTER) {
       // target.disabled = true
       this.setState({ isFetching: true })
-      ajax().get(this.getGitHubUrl(value))
+      $.get(this.getGitHubUrl(value))
         .then((result) => {
           // console.log('search result', result)
           this.setState({
@@ -62,7 +64,9 @@ class App extends Component {
     return (e) => {
       console.log('type e page', type, page)
       const username = this.state.userinfo.login
-      ajax().get(this.getGitHubUrl(username, type, page))
+
+      // ajax().get(this.getGitHubUrl(username, type, page))
+      $.get(this.getGitHubUrl(username, type, page))
         .then((result, xhr) => {
           const linkHeader = xhr.getResponseHeader('Link') || ''
           const totalPagesMatch = linkHeader.match(/&page=(\d+)>; rel="last"/)
@@ -91,7 +95,7 @@ class App extends Component {
     return (
       <AppContent
         {...this.state}
-        handleSearch={this.handleSearch}
+        onHandleSearch={this.handleSearch}
         getRepos={this.handleAction('repos')}
         getStarred={this.handleAction('starred')}
         handlePagination={(type, page) => this.handleAction(type, page)()}

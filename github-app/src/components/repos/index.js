@@ -14,7 +14,7 @@ const Index = ({ className, title, repos, handlePagination }) => (
         </li>
       ))}
     </ul>
-    <Pagination total={repos.pagination.total} activePage={repos.pagination.activePage} onClick={handlePagination}/>
+    <Pagination total={repos.pagination.total} activePage={repos.pagination.activePage} onClick={handlePagination} />
   </div>
 )
 Index.defaultProps = {

@@ -8,12 +8,12 @@ storiesOf('Repos', module)
   .add('with title prop',
     () => (
       <Repos
-        title={'Favoritos'}
+        title='Favoritos'
       />
     ))
   .add('with repos', () => (
     <Repos
-      title={'Favoritos'}
+      title='Favoritos'
       repos={[
         { html_url: 'http://www.pornhub.com', name: 'pornhub' }
       ]}

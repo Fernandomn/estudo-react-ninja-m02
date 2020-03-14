@@ -1,4 +1,14 @@
 {
-  "presets": ["es2015", "stage-0", "react"],
-  "plugins": ["react-hot-loader/babel"]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry"
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel"
+  ]
 }

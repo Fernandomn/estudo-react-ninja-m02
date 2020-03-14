@@ -12,35 +12,33 @@ const AppContent = ({
   repos,
   starred,
   isFetching,
-  handleSearch,
+  onHandleSearch,
   getRepos,
   getStarred,
   handlePagination
 }) => (
   <div className='app'>
-    <Search isDisabled={isFetching} handleSearch={handleSearch} />
+    <Search isDisabled={isFetching} handleSearch={onHandleSearch} />
     {isFetching && <div>Carregando...</div>}
     {!!userinfo && <UserInfo userinfo={userinfo} />}
     {!!userinfo && <Actions getRepos={getRepos} getStarred={getStarred} />}
 
     <div className='repos-container'>
       {!!repos.repos.length &&
-      <Repos
-        className='repos'
-        title='Repositórios:'
-        repos={repos}
-        handlePagination={(clicked) => handlePagination('repos', clicked)}
-      />
-      }
+        <Repos
+          className='repos'
+          title='Repositórios:'
+          repos={repos}
+          handlePagination={(clicked) => handlePagination('repos', clicked)}
+        />}
 
       {!!starred.repos.length &&
-      <Repos
-        className='starred'
-        title='Favoritos:'
-        repos={starred}
-        handlePagination={(clicked) => handlePagination('starred', clicked)}
-      />
-      }
+        <Repos
+          className='starred'
+          title='Favoritos:'
+          repos={starred}
+          handlePagination={(clicked) => handlePagination('starred', clicked)}
+        />}
     </div>
   </div>
 )

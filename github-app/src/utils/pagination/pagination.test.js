@@ -192,4 +192,3 @@ test('pagination({total:10,activePage:"ble"}) should throw an error', () => {
     expect(e.message).to.be.equal(result)
   }
 })
-
