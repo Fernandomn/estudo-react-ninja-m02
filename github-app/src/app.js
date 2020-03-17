@@ -64,10 +64,9 @@ class App extends Component {
     return (e) => {
       console.log('type e page', type, page)
       const username = this.state.userinfo.login
-
-      // ajax().get(this.getGitHubUrl(username, type, page))
-      $.get(this.getGitHubUrl(username, type, page))
-        .then((result, xhr) => {
+      const url = this.getGitHubUrl(username, type, page)
+      $.get(url)
+        .done((result, status, xhr) => {
           const linkHeader = xhr.getResponseHeader('Link') || ''
           const totalPagesMatch = linkHeader.match(/&page=(\d+)>; rel="last"/)
           console.log('totalPagesMatch: ', totalPagesMatch)
@@ -81,7 +80,6 @@ class App extends Component {
                 html_url: repo.html_url
               })),
               pagination: {
-                // ...this.state[type].pagination,
                 total: totalPagesMatch ? +totalPagesMatch[1] : this.state[type].pagination.total,
                 activePage: page
               }

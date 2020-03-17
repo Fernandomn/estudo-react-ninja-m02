@@ -1,5 +1,7 @@
 'use strict'
-import React, { PropTypes } from 'react'
+// import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import pagination from '../../utils/pagination'
 import Page from './page'
 import './pagination.css'

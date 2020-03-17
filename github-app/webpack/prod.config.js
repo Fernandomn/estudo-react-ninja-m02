@@ -20,7 +20,7 @@ module.exports = {
       }
     }),
 
-    new HtmlPlugin(common.htmlPluginConfig('template-dev.html')),
+    new HtmlPlugin(common.htmlPluginConfig('template-dev.html'))
 
     // new webpack.optimize.UglifyJsPlugin({
     //   sourceMap: true

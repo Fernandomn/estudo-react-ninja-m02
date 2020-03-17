@@ -1,6 +1,8 @@
 'use strict'
 
-import React, { PropTypes } from 'react'
+// import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import './actions.css'
 
 const Index = ({ getRepos, getStarred }) => (
